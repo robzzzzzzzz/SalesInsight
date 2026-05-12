@@ -15,11 +15,11 @@ export async function dashboardRoutes(app: FastifyInstance) {
     const [kpi] = await db
       .select({
         totalRevenue: sum(orderDetails.unitPrice),
-        totalOrders: count(orders.id),
+        totalOrders: count(orders.orderId),
         avgTicket: avg(orderDetails.unitPrice),
       })
       .from(orders)
-      .innerJoin(orderDetails, eq(orders.id, orderDetails.orderId))
+      .innerJoin(orderDetails, eq(orders.orderId, orderDetails.orderId))
       .where(dateFilter);
 
     return kpi;

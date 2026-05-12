@@ -4,20 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "dev": "tsx watch src/app.ts",
-  "generate": "drizzle-kit generate",
-  "push": "drizzle-kit push"
-},
+    "dev": "tsx watch src/app.ts",
+    "generate": "drizzle-kit generate",
+    "push": "drizzle-kit push"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
     "@fastify/cors": "^11.2.0",
+    "@fastify/swagger": "^9.7.0",
+    "@fastify/swagger-ui": "^5.2.6",
     "@neondatabase/serverless": "^1.1.0",
     "dotenv": "^17.4.2",
     "drizzle-orm": "^0.45.2",
-    "fastify": "^5.8.5"
+    "fastify": "^5.8.5",
+    "fastify-type-provider-zod": "^6.1.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@types/node": "^25.7.0",

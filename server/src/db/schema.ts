@@ -1,17 +1,18 @@
-import { pgTable, serial, varchar, numeric, date, integer } from 'drizzle-orm/pg-core';
+import { pgTable, serial, integer, real, date, varchar, unique } from 'drizzle-orm/pg-core';
 
 export const orders = pgTable('orders', {
-  id: serial('id').primaryKey(),
-  customerId: varchar('customer_id').notNull(),
+  id: serial('id').primaryKey(),                // chave substituta (opcional, mas evita composta)
+  orderId: integer('order_id').notNull().unique(),
+  customerId: varchar('customer_id'),
   employeeId: integer('employee_id'),
-  orderDate: date('order_date').notNull(),
+  orderDate: date('order_date'),
 });
 
 export const orderDetails = pgTable('order_details', {
   id: serial('id').primaryKey(),
-  orderId: integer('order_id').references(() => orders.id),
-  productId: integer('product_id'),
-  unitPrice: numeric('unit_price', { precision: 10, scale: 2 }),
+  orderId: integer('order_id').notNull().references(() => orders.orderId),
+  productId: integer('product_id').notNull(),
+  unitPrice: real('unit_price'),
   quantity: integer('quantity'),
-  discount: numeric('discount', { precision: 4, scale: 2 }),
+  discount: real('discount'),
 });
