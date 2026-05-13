@@ -6,10 +6,11 @@ import { orders, orderDetails } from '../db/schema';
 export async function dashboardRoutes(app: FastifyInstance) {
   app.get('/dashboard', async (request) => {
     const { startDate, endDate } = request.query as { startDate?: string; endDate?: string };
-
     const conditions = [];
+
     if (startDate) conditions.push(gte(orders.orderDate, startDate));
     if (endDate) conditions.push(lte(orders.orderDate, endDate));
+    
     const dateFilter = conditions.length > 0 ? and(...conditions) : undefined;
 
     const [kpi] = await db

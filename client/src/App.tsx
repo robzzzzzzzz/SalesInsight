@@ -6,20 +6,22 @@ function App() {
 
   return (
     <>
-      <section id="center">
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
+      <section>
+        <h1>Dashboard</h1>
+        <p>Total Revenue: $12345</p>
+        <p>Total Orders: 678</p>
+        <p>Average Ticket: $18.20</p>
+      
+      <div className="date-inputs">
+        <input
+          type="date"
+          placeholder="Start Date"
+        />
+        <input
+          type="date"
+          placeholder="End Date"
+        />
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
       </section>
     </>
   )
