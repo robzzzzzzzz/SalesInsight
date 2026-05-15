@@ -1,29 +1,42 @@
-import { useState } from 'react'
+import { useQuery } from './hooks/useQuery'
+import { useDashboard } from './hooks/useDashboard'
 import './App.css'
+import KpiCards from './components/KpiCards'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { startDate, endDate, setFilter } = useQuery()
+  const { data, isLoading, error } = useDashboard(startDate, endDate)
+  console.log('Dados do dashboard:', data)
 
   return (
-    <>
-      <section>
-        <h1>Dashboard</h1>
-        <p>Total Revenue: $12345</p>
-        <p>Total Orders: 678</p>
-        <p>Average Ticket: $18.20</p>
-      
-      <div className="date-inputs">
-        <input
-          type="date"
-          placeholder="Start Date"
-        />
-        <input
-          type="date"
-          placeholder="End Date"
-        />
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">SalesInsight Dashboard</h1>
+
+      <section className="mb-4 flex gap-2">
+        <div>
+          <label className="block text-sm">Data inicial</label>
+          <input
+            type="date"
+            value={startDate}
+            onChange={(e) => setFilter('startDate', e.target.value)}
+            className="hide-date-picker border border-gray-300 rounded px-3 py-2"
+          />
+        </div>
+        <div>
+          <label className="block text-sm">Data final</label>
+          <input
+            type="date"
+            value={endDate}
+            onChange={(e) => setFilter('endDate', e.target.value)}
+            className="hide-date-picker border border-gray-300 rounded px-3 py-2"
+          />
         </div>
       </section>
-    </>
+
+      {isLoading && <p>Carregando...</p>}
+      {error && <p>Erro: {error.message}</p>}
+      {data && <KpiCards {...data} />}
+    </div>
   )
 }
 
