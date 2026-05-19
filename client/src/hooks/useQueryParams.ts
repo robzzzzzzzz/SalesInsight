@@ -1,6 +1,6 @@
 import { useSearchParams } from 'react-router-dom'
 
-export function useQuery() {
+export function useQueryParams() {
   const [searchParams, setSearchParams] = useSearchParams()
   
   const startDate = searchParams.get('startDate') || ''

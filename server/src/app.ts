@@ -5,7 +5,7 @@ import { dashboardRoutes } from './routes/dashboard';
 const app = Fastify();
 
 app.register(cors, { origin: 'http://localhost:5173' });
-app.register(dashboardRoutes, { prefix: '' });
+app.register(dashboardRoutes, { prefix: 'api' });
 
 app.listen({ port: 3000 }, (err, address) => {
   if (err) throw err;

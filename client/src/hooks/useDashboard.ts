@@ -12,7 +12,7 @@ export function useDashboard(startDate: string, endDate: string) {
     queryKey: ['dashboard', startDate, endDate],
     queryFn: () =>
       axios
-        .get('http://localhost:3000/dashboard', 
+        .get('http://localhost:3000/api/dashboard',
         {
           params: {
             startDate: startDate || undefined,
