@@ -1,5 +1,5 @@
 import { useQueryParams } from './hooks/useQueryParams'
-import { useDashboard } from './hooks/useDashboard'
+import { useDashboard } from './hooks/useSalesSumary'
 import { useDateInput } from './hooks/useDateInput'
 import KpiCards from './components/KpiCards'
 import './App.css'

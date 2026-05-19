@@ -1,6 +1,6 @@
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
-import { dashboardRoutes } from './routes/dashboard';
+import { dashboardRoutes } from './routes/sales-sumary';
 
 const app = Fastify();
 
