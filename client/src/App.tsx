@@ -1,12 +1,12 @@
 import { useQueryParams } from './hooks/useQueryParams'
-import { useDashboard } from './hooks/useSalesSumary'
+import { useSalesSummary } from './hooks/useSalesSumary'
 import { useDateInput } from './hooks/useDateInput'
 import KpiCards from './components/KpiCards'
 import './App.css'
 
 function App() {
   const { startDate, endDate, setFilter } = useQueryParams()
-  const { data, isLoading, error } = useDashboard(startDate, endDate)
+  const { data, isLoading, error } = useSalesSummary(startDate, endDate)
 
   const startInput = useDateInput(startDate, 'startDate', setFilter)
   const endInput = useDateInput(endDate, 'endDate', setFilter)
