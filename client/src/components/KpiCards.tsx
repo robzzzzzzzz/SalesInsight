@@ -1,13 +1,8 @@
 import { DollarSign, ShoppingCart, BarChart3, TrendingUp, TrendingDown } from 'lucide-react'
 import { formatCurrency, formatInteger, formatDecimal } from '../utils/formatters'
+import type { SalesSummary } from '../types/sales'
 
-interface KpiCardsProps {
-  totalRevenue: string
-  totalOrders: number
-  avgTicket: string
-}
-
-export default function KpiCards({ totalRevenue, totalOrders, avgTicket }: KpiCardsProps) {
+export default function KpiCards({ totalRevenue, totalOrders, avgTicket }: SalesSummary) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
       {/* Card Receita */}

@@ -1,6 +1,7 @@
 import { useQueryParams } from './hooks/useQueryParams'
 import { useSalesSummary } from './hooks/useSalesSumary'
 import { useDateInput } from './hooks/useDateInput'
+import { Routes, Route, Navigate } from 'react-router-dom';
 import KpiCards from './components/KpiCards'
 import './App.css'
 
@@ -39,7 +40,7 @@ function App() {
               value={startInput.value}
               onChange={startInput.onChange}
               placeholder="dd/mm/aaaa"
-              className="w-20 px-2 py-1.5 text-xs border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 placeholder-gray-400 focus:outline-none"
+              className="w-22 px-2 py-1.5 text-xs border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 placeholder-gray-400 focus:outline-none"
             />
             <span className="text-gray-300 dark:text-gray-600 text-xs">—</span>
             <input
@@ -48,7 +49,7 @@ function App() {
               value={endInput.value}
               onChange={endInput.onChange}
               placeholder="dd/mm/aaaa"
-              className="w-20 px-2 py-1.5 text-xs border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 placeholder-gray-400 focus:outline-none"
+              className="w-22 px-2 py-1.5 text-xs border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 placeholder-gray-400 focus:outline-none"
             />
             </div>
           </div>
@@ -60,6 +61,16 @@ function App() {
         {error && <p className="text-xs text-red-500">Erro: {error.message}</p>}
         {data && <KpiCards {...data} />}
       </section>
+      
+      <Routes>
+      <Route path="/" element={
+        <div className="container mx-auto p-4">
+          {/* todo o JSX do seu dashboard atual */}
+        </div>
+      } />
+      {/* Qualquer outra rota redireciona para a raiz */}
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
     </div>
   )
 }
