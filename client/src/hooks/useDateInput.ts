@@ -1,5 +1,5 @@
-// hooks/useDateInput.ts
 import { useState, useEffect, useRef, useCallback } from 'react'
+import type { UseDateInputReturn } from '../types/dateInput'
 import type { ChangeEvent } from 'react'
 // ---------- Funções auxiliares de data ----------
 
@@ -37,13 +37,8 @@ const isoToBrazilian = (iso: string): string => {
   const [y, m, d] = iso.split('-')
   return `${d}/${m}/${y}`
 }
-// ------------------------------------------------------------------
 
-interface UseDateInputReturn {
-  value: string
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void
-  ref: React.RefObject<HTMLInputElement | null>
-}
+// ------------------------------------------------------------------
 
 // Agora K é o tipo da chave (ex.: "startDate" | "endDate")
 export function useDateInput<K extends string>(

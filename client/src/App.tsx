@@ -1,20 +1,25 @@
 import { useQueryParams } from './hooks/useQueryParams'
 import { useSalesSummary } from './hooks/useSalesSumary'
+import { useRevenueMonthly } from './hooks/useRevenueMonthly';
 import { useDateInput } from './hooks/useDateInput'
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { AsyncRenderer } from './components/AsyncRendererProps'
 import KpiCards from './components/KpiCards'
+import RevenueChart from './components/revenueChart'
 import './App.css'
 
 function App() {
   const { startDate, endDate, setFilter } = useQueryParams()
-  const { data, isLoading, error } = useSalesSummary(startDate, endDate)
+  const { data: salesData, isLoading: salesLoading, error: salesError } = useSalesSummary(startDate, endDate)
+  const { data: revenueData, isLoading: revenueLoading, error: revenueError } = useRevenueMonthly(startDate, endDate)
 
   const startInput = useDateInput(startDate, 'startDate', setFilter)
   const endInput = useDateInput(endDate, 'endDate', setFilter)
 
   return (
+    <Routes>
+    <Route path="/" element={
     <div className="container mx-auto p-4">
-      {/* Cabeçalho: título + subtítulo à esquerda, filtros à direita */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <div className="relative inline-block">
@@ -55,23 +60,28 @@ function App() {
           </div>
         </div>
 
-      {/* Resultados */}
-      <section className="mt-8">
-        {isLoading && <p className="text-xs text-gray-400">Carregando...</p>}
-        {error && <p className="text-xs text-red-500">Erro: {error.message}</p>}
-        {data && <KpiCards {...data} />}
-      </section>
-      
-      <Routes>
-      <Route path="/" element={
-        <div className="container mx-auto p-4">
-          {/* todo o JSX do seu dashboard atual */}
-        </div>
+      <AsyncRenderer
+        isLoading={salesLoading}
+        error={salesError}
+        data={salesData}
+        loadingMessage="Carregando KPIs..."
+      >
+        {(salesData) => <KpiCards {...salesData} />}
+      </AsyncRenderer>
+
+      <AsyncRenderer
+        isLoading={revenueLoading}
+        error={revenueError}
+        data={revenueData}
+        loadingMessage="Carregando KPIs..."
+      >
+        {(data) => <RevenueChart data={data} />}
+      </AsyncRenderer>
+        
+      </div>
       } />
-      {/* Qualquer outra rota redireciona para a raiz */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
-    </div>
   )
 }
 

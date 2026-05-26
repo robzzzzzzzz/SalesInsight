@@ -1,0 +1,25 @@
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
+import type { RevenueMonthly } from '../types/revenue'
+
+interface Props {
+  data: RevenueMonthly[]   // <- Array de dados, essencial para o gráfico
+}
+
+export function RevenueChart({ data }: Props) {
+  return (
+    <div className="bg-white dark:bg-gray-800 p-4 border border-gray-200 dark:border-gray-700">
+      <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+        Receita Mensal
+      </h3>
+      <ResponsiveContainer width="100%" height={300}>
+        <LineChart data={data}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+          <XAxis dataKey="month" tick={{ fontSize: 12 }} />
+          <YAxis tick={{ fontSize: 12 }} />
+          <Tooltip />
+          <Line type="monotone" dataKey="revenue" stroke="#6366f1" strokeWidth={2} />
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
+  )
+}
