@@ -64,7 +64,7 @@ function App() {
         isLoading={salesLoading}
         error={salesError}
         data={salesData}
-        loadingMessage="Carregando KPIs..."
+        loadingMessage="Carregando ..."
       >
         {(salesData) => <KpiCards {...salesData} />}
       </AsyncRenderer>
@@ -73,9 +73,9 @@ function App() {
         isLoading={revenueLoading}
         error={revenueError}
         data={revenueData}
-        loadingMessage="Carregando KPIs..."
+        loadingMessage="Carregando ..."
       >
-        {(data) => <RevenueChart data={data} />}
+        {(revenueData) => <RevenueChart data={revenueData} />}
       </AsyncRenderer>
         
       </div>

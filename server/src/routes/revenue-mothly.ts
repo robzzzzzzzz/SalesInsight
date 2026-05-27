@@ -1,5 +1,5 @@
 import { FastifyInstance } from 'fastify'
-import { sql, eq, and, gte, lte, sum } from 'drizzle-orm'
+import { sql, eq, and, gte, lte } from 'drizzle-orm'
 import { db } from '../db'
 import { orders, orderDetails } from '../db/schema'
 

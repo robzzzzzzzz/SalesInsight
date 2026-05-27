@@ -1,11 +1,7 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import type { RevenueMonthly } from '../types/revenue'
 
-interface Props {
-  data: RevenueMonthly[]   // <- Array de dados, essencial para o gráfico
-}
-
-export function RevenueChart({ data }: Props) {
+export default function RevenueChart({ data }: {data: RevenueMonthly[]}) {
   return (
     <div className="bg-white dark:bg-gray-800 p-4 border border-gray-200 dark:border-gray-700">
       <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
