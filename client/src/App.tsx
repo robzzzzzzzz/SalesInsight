@@ -1,17 +1,20 @@
 import { useQueryParams } from './hooks/useQueryParams'
 import { useSalesSummary } from './hooks/useSalesSumary'
-import { useRevenueMonthly } from './hooks/useRevenueMonthly';
+import { useRevenueMonthly } from './hooks/useRevenueMonthly'
+import { useSalesByCategory } from './hooks/useSalesByCategory'
 import { useDateInput } from './hooks/useDateInput'
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { AsyncRenderer } from './components/AsyncRendererProps'
 import KpiCards from './components/KpiCards'
-import RevenueChart from './components/revenueChart'
+import RevenueChart from './components/RevenueChart'
+import SalesByCategory from './components/SalesByCategory'
 import './App.css'
 
 function App() {
   const { startDate, endDate, setFilter } = useQueryParams()
   const { data: salesData, isLoading: salesLoading, error: salesError } = useSalesSummary(startDate, endDate)
   const { data: revenueData, isLoading: revenueLoading, error: revenueError } = useRevenueMonthly(startDate, endDate)
+  const { data: salesByCategoryData, isLoading: salesByCategoryLoading, error: salesByCategoryError } = useSalesByCategory(startDate, endDate)
 
   const startInput = useDateInput(startDate, 'startDate', setFilter)
   const endInput = useDateInput(endDate, 'endDate', setFilter)
@@ -76,6 +79,16 @@ function App() {
         loadingMessage="Carregando ..."
       >
         {(revenueData) => <RevenueChart data={revenueData} />}
+      </AsyncRenderer>
+
+      <AsyncRenderer
+        isLoading={salesByCategoryLoading}
+        error={salesByCategoryError}
+        data={salesByCategoryData}
+        loadingMessage="Carregando ..."
+        className="mt-6"
+      >
+        {(salesByCategoryData) => <SalesByCategory data={salesByCategoryData} />}
       </AsyncRenderer>
         
       </div>
