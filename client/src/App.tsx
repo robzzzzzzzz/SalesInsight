@@ -86,7 +86,6 @@ function App() {
         error={salesByCategoryError}
         data={salesByCategoryData}
         loadingMessage="Carregando ..."
-        className="mt-6"
       >
         {(salesByCategoryData) => <SalesByCategory data={salesByCategoryData} />}
       </AsyncRenderer>
