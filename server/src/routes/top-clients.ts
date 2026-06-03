@@ -1,5 +1,5 @@
 import { FastifyInstance } from 'fastify'
-import { sql, eq, and, gte, lte, sum } from 'drizzle-orm'
+import { sql, eq, and, gte, lte, sum, desc } from 'drizzle-orm'
 import { db } from '../db'
 import { orders, orderDetails, customers } from '../db/schema'
 
@@ -26,8 +26,8 @@ export async function topClientsRoutes(app: FastifyInstance) {
       .innerJoin(orderDetails, eq(orders.orderId, orderDetails.orderId))
       .where(dateFilter)
       .groupBy(sql`${customers.companyName}`)
-      .orderBy(sql`${totalDeVendas} DESC`)
-
+      .orderBy(desc(totalDeVendas))
+      .limit(10)
     return rows
   })
 }
