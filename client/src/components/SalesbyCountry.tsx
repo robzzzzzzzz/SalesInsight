@@ -1,17 +1,40 @@
 import { Treemap, Tooltip, ResponsiveContainer } from 'recharts'
 import type { SalesByCountry } from '../types/salesByCountry'
+import { formatCurrency } from '../utils/formatters'
 
-const COLORS = [
-  '#8884d8', '#83a6ed', '#8dd1e1', '#82ca9d', '#a4de6c',
-  '#d0ed57', '#ffc658', '#ff8042', '#ff6361', '#bc5090'
-]
+const COUNTRY_NAMES: Record<string, string> = {
+  'USA': 'Estados Unidos',
+  'UK': 'Reino Unido',
+  'Germany': 'Alemanha',
+  'France': 'França',
+  'Brazil': 'Brasil',
+  'Austria': 'Áustria',
+  'Sweden': 'Suécia',
+  'Ireland': 'Irlanda',
+  'Venezuela': 'Venezuela',
+  'Canada': 'Canadá',
+}
+
+// tom terroso/verde-oliva suave
+const HUE = 95
+const SATURATION = 60
+
+function getHeatColor(value: number, maxValue: number): string {
+  if (maxValue === 0) return `hsl(${HUE}, ${SATURATION}%, 90%)`
+  const ratio = value / maxValue
+  const lightness = 90 - ratio * 50
+  return `hsl(${HUE}, ${SATURATION}%, ${lightness}%)`
+}
 
 export default function SalesByCountryTreemap({ data }: { data: SalesByCountry[] }) {
-  // Converte para o formato que o Treemap do Recharts aceita
   const chartData = data.map(item => ({
-    name: item.countryName,           // antes estava item.companyName
-    totalSales: Number(item.totalSales), // converte string para número
+    name: COUNTRY_NAMES[item.countryName] || item.countryName,
+    totalSales: Number(item.totalSales),
   }))
+
+  const maxSales = chartData.length > 0
+    ? Math.max(...chartData.map(d => d.totalSales))
+    : 0
 
   return (
     <div className="mt-8 bg-white dark:bg-gray-800 p-4 border border-gray-200 dark:border-gray-700">
@@ -25,16 +48,41 @@ export default function SalesByCountryTreemap({ data }: { data: SalesByCountry[]
           nameKey="name"
           aspectRatio={4 / 3}
           stroke="#fff"
-          fill="#8884d8"
+          content={({ root, depth, x, y, width, height, index, name, totalSales }) => {
+            const salesValue = Number(totalSales)
+            const color = getHeatColor(salesValue, maxSales)
+            const textColor = '#f5f0eb' // cor clara fixa
+            return (
+              <g>
+                <rect
+                  x={x}
+                  y={y}
+                  width={width}
+                  height={height}
+                  fill={color}
+                  stroke="#fff"
+                  strokeWidth={2}
+                />
+                {width > 60 && height > 30 && (
+                  <text
+                    x={x + width / 2}
+                    y={y + height / 2}
+                    textAnchor="middle"
+                    fill={textColor}
+                    stroke="#1a1a1a"
+                    strokeWidth={2.0}   // ← borda mais grossa (antes 1.0)
+                    paintOrder="stroke fill"
+                    fontSize={12}
+                    fontWeight={500}
+                  >
+                    {name}
+                  </text>
+                )}
+              </g>
+            )
+          }}
         >
-          <Tooltip
-            formatter={(value) =>
-              `R$ ${Number(value).toLocaleString('pt-BR', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-              })}`
-            }
-          />
+          <Tooltip formatter={(value: any) => formatCurrency(Number(value))} />
         </Treemap>
       </ResponsiveContainer>
     </div>
