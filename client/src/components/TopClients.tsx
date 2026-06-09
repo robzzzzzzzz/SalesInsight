@@ -15,25 +15,12 @@ export default function TopClientsChart({ data }: { data: TopClients[] }) {
           <YAxis
             type="category"
             dataKey="companyName"
-            width={140}
-            tick={(props) => {
-              const { x, y, payload } = props
-              return (
-                <text
-                  x={x}
-                  y={y}
-                  textAnchor="end"
-                  fill="#f5f0eb"
-                  stroke="#1a1a1a"
-                  strokeWidth={1.2}
-                  paintOrder="stroke fill"
-                  fontSize={14}
-                  fontWeight={700}
-                >
-                  {payload.value}
-                </text>
-              )
+            tick={{
+              fontSize: 14,
+              fontWeight: 700,
+              fill: '#828892',   // mesmo tom do título (gray-700)
             }}
+            width={140}
           />
           <Bar dataKey="totalSales" name="Total Sales" fill="#ef4444" />
           <Tooltip formatter={(value: any) => formatCurrency(Number(value))} />

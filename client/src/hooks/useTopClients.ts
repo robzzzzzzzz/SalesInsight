@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { fetchTopClients } from '../services/topClients'
+import { fetchTopClients } from '../services/topClientsService'
 
 export function useTopClients(startDate: string, endDate: string) {
   return useQuery({
