@@ -9,7 +9,7 @@ export default function KpiCards({ totalRevenue, totalOrders, avgTicket }: Sales
       <div className="bg-white dark:bg-gray-800 shadow-md p-6 border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Receita Total</p>
+            <p className="text-xl font-medium text-gray-500 dark:text-gray-400 mb-1">Receita Total</p>
             <p className="text-3xl font-bold text-gray-900 dark:text-white">
               {formatCurrency(totalRevenue)}
             </p>
@@ -28,7 +28,7 @@ export default function KpiCards({ totalRevenue, totalOrders, avgTicket }: Sales
       <div className="bg-white dark:bg-gray-800 shadow-md p-6 border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Total de Pedidos</p>
+            <p className="text-xl font-medium text-gray-500 dark:text-gray-400 mb-1">Total de Pedidos</p>
             <p className="text-3xl font-bold text-gray-900 dark:text-white">
               {formatInteger(totalOrders)}
             </p>
@@ -47,7 +47,7 @@ export default function KpiCards({ totalRevenue, totalOrders, avgTicket }: Sales
       <div className="bg-white dark:bg-gray-800 shadow-md p-6 border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Ticket Médio</p>
+            <p className="text-xl font-medium text-gray-500 dark:text-gray-400 mb-1">Ticket Médio</p>
             <p className="text-3xl font-bold text-gray-900 dark:text-white">
               {formatDecimal(avgTicket)}
             </p>

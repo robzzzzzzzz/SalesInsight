@@ -5,7 +5,7 @@ import { formatCurrency } from '../utils/formatters'
 export default function RevenueChart({ data }: { data: RevenueMonthly[] }) {
   return (
     <div className="bg-white dark:bg-gray-800 p-4 border border-gray-200 dark:border-gray-700 mb-8">
-      <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+      <h3 className="text-xl font-medium text-gray-700 dark:text-gray-300 mb-3">
         Receita Mensal
       </h3>
       <ResponsiveContainer width="100%" height={300}>

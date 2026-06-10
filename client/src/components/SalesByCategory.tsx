@@ -2,21 +2,37 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import type { SalesByCategory } from '../types/salesByCategory'
 import { formatCurrency, formatInteger } from '../utils/formatters'
 
+const CATEGORY_TRANSLATIONS: Record<string, string> = {
+  'Beverages': 'Bebidas',
+  'Condiments': 'Condimentos',
+  'Confections': 'Confeitos',
+  'Dairy Products': 'Laticínios',
+  'Grains/Cereals': 'Grãos/Cereais',
+  'Meat/Poultry': 'Carnes/Aves',
+  'Produce': 'Hortifrúti',
+  'Seafood': 'Frutos do Mar',
+}
+
 export default function SalesByCategoryChart({ data }: { data: SalesByCategory[] }) {
+  const translatedData = data.map(item => ({
+    ...item,
+    categoryName: CATEGORY_TRANSLATIONS[item.categoryName] || item.categoryName,
+  }))
+  
   return (
     <div className="mt-8 bg-white dark:bg-gray-800 p-4 border border-gray-200 dark:border-gray-700">
-      <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-4">
+      <h3 className="text-xl font-medium text-gray-700 dark:text-gray-300 mb-4">
         Vendas por Categoria
       </h3>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {/* Gráfico de Receita */}
         <div>
-          <h4 className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-2 text-center">
+          <h4 className="text-xl font-medium text-gray-500 dark:text-gray-400 mb-2 text-center">
             Receita
           </h4>
           <ResponsiveContainer width="100%" height={250}>
-            <BarChart data={data}>
+            <BarChart data={translatedData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="categoryName" tick={{ fontSize: 12 }} />
               <YAxis tick={{ fontSize: 12 }} tickFormatter={(v: number) => formatCurrency(v)} />
@@ -28,11 +44,11 @@ export default function SalesByCategoryChart({ data }: { data: SalesByCategory[]
 
         {/* Gráfico de Quantidade */}
         <div>
-          <h4 className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-2 text-center">
+          <h4 className="text-xl font-medium text-gray-500 dark:text-gray-400 mb-2 text-center">
             Quantidade
           </h4>
           <ResponsiveContainer width="100%" height={250}>
-            <BarChart data={data}>
+            <BarChart data={translatedData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="categoryName" tick={{ fontSize: 12 }} />
               <YAxis tick={{ fontSize: 12 }} tickFormatter={(v: number) => formatInteger(v)} />

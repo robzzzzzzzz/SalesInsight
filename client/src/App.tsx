@@ -38,37 +38,37 @@ function App() {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-stone-200 dark:border-gray-700">
               <div>
                 <div className="relative inline-block">
-                  <h2 className="text-lg font-medium text-gray-900 dark:text-white pr-16">
+                  <h1 className="text-5xl font-medium text-gray-900 dark:text-white pr-16">
                     SalesInsight
-                  </h2>
-                  <span className="absolute bottom-0 right-0 text-[10px] font-medium text-orange-500 dark:text-orange-400 tracking-wide uppercase">
+                  </h1>
+                  <span className="absolute bottom-0 left-66 text-[16px] font-medium text-orange-500 dark:text-orange-400 tracking-wide uppercase">
                     Dashboard
                   </span>
                 </div>
-                <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">
+                <p className="text-gray-400 dark:text-gray-500 mt-1">
                   Análise de vendas em tempo real
                 </p>
               </div>
 
               <div className="flex items-center gap-2">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-[11px] text-gray-400 dark:text-gray-500 select-none">Período</span>
+                  <span className="text-[16px] text-gray-400 dark:text-gray-500 select-none">Período</span>
                   <input
                     ref={startInput.ref}
                     type="text"
                     value={startInput.value}
                     onChange={startInput.onChange}
                     placeholder="dd/mm/aaaa"
-                    className="w-22 px-2 py-1.5 text-xs border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 dark:focus:border-orange-400 rounded"
+                    className="w-30 px-3 py-1.5 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 dark:focus:border-orange-400 rounded"
                   />
-                  <span className="text-gray-300 dark:text-gray-600 text-xs">—</span>
+                  <span className="text-[16px] text-gray-400 dark:text-gray-500 select-none text-gray-400 dark:text-gray-500 select-none">—</span>
                   <input
                     ref={endInput.ref}
                     type="text"
                     value={endInput.value}
                     onChange={endInput.onChange}
                     placeholder="dd/mm/aaaa"
-                    className="w-22 px-2 py-1.5 text-xs border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 dark:focus:border-orange-400 rounded"
+                    className="w-30 px-3 py-1.5 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 dark:focus:border-orange-400 rounded"
                   />
                 </div>
               </div>

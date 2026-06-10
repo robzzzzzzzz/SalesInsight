@@ -38,7 +38,7 @@ export default function SalesByCountryTreemap({ data }: { data: SalesByCountry[]
 
   return (
     <div className="mt-8 bg-white dark:bg-gray-800 p-4 border border-gray-200 dark:border-gray-700">
-      <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+      <h3 className="text-xl font-medium text-gray-700 dark:text-gray-300 mb-3">
         Vendas por País
       </h3>
       <ResponsiveContainer width="100%" height={400}>
@@ -72,7 +72,7 @@ export default function SalesByCountryTreemap({ data }: { data: SalesByCountry[]
                     stroke="#1a1a1a"
                     strokeWidth={2.0}   // ← borda mais grossa (antes 1.0)
                     paintOrder="stroke fill"
-                    fontSize={12}
+                    fontSize={16}
                     fontWeight={500}
                   >
                     {name}

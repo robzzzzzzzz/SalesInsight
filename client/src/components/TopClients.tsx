@@ -5,7 +5,7 @@ import { formatCurrency } from '../utils/formatters'
 export default function TopClientsChart({ data }: { data: TopClients[] }) {
   return (
     <div className="mt-8 bg-white dark:bg-gray-800 p-4 border border-gray-200 dark:border-gray-700">
-      <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+      <h3 className="text-xl font-medium text-gray-700 dark:text-gray-300 mb-3">
         Top 10 Clientes
       </h3>
       <ResponsiveContainer width="100%" height={400}>
