@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "dev": "tsx watch src/app.ts",
-    "generate": "drizzle-kit generate",
-    "push": "drizzle-kit push"
-  },
+"scripts": {
+  "build": "tsup src/app.ts --format esm --out-dir dist --platform node --dts",
+  "start": "node dist/app.js",
+  "dev": "tsx watch src/app.ts",
+  "generate": "drizzle-kit generate",
+  "push": "drizzle-kit push"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -26,6 +28,7 @@
   "devDependencies": {
     "@types/node": "^25.7.0",
     "drizzle-kit": "^0.31.10",
+    "tsup": "^8.5.1",
     "tsx": "^4.21.0",
     "typescript": "^6.0.3"
   }

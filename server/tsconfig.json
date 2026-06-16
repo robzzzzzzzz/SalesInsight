@@ -1,20 +1,19 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",   // <--- volta para bundler
     "lib": ["ES2023"],
     "rootDir": "src",
     "outDir": "dist",
-    "types": ["node"],
+    "ignoreDeprecations": "6.0",
     "strict": true,
     "esModuleInterop": true,
-    "isolatedModules": true,
     "skipLibCheck": true,
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true
   },
-  "include": ["src"],          
+  "include": ["src"],
   "exclude": ["node_modules", "dist"]
 }
