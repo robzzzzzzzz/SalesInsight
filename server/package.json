@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/app.ts",
+    "start": "tsx src/app.ts" ,
     "generate": "drizzle-kit generate",
     "push": "drizzle-kit push"
   },
