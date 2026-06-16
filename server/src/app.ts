@@ -8,7 +8,9 @@ import { salesByCountryRoutes } from './routes/sales-by-country'
 
 const app = Fastify()
 
-app.register(cors, { origin: 'http://localhost:5173' })
+const allowedOrigin = process.env.FRONTEND_URL || 'http://localhost:5173'
+
+app.register(cors, { origin: allowedOrigin })
 app.register(salesSummaryRoutes, { prefix: 'api' })
 app.register(revenueMonthlyRoutes, { prefix: 'api' })
 app.register(salesByCategoryRoutes, { prefix: 'api' })
