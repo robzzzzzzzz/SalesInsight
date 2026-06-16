@@ -14,7 +14,7 @@ export default function RevenueChart({ data }: { data: RevenueMonthly[] }) {
           <XAxis dataKey="month" tick={{ fontSize: 12 }} />
           <YAxis tick={{ fontSize: 12 }} tickFormatter={(v) => formatCurrency(v)} />
           <Tooltip formatter={(value: any) => formatCurrency(Number(value))} />
-          <Line type="monotone" dataKey="revenue" name="Total" stroke="#dc2626" strokeWidth={2} />
+          <Line type="monotone" dataKey="revenue" name="Total" stroke="#dc2626" strokeWidth={2}/>
         </LineChart>
       </ResponsiveContainer>
     </div>
