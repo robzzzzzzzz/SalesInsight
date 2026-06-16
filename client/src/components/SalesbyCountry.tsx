@@ -48,7 +48,7 @@ export default function SalesByCountryTreemap({ data }: { data: SalesByCountry[]
           nameKey="name"
           aspectRatio={4 / 3}
           stroke="#fff"
-          content={({ root, depth, x, y, width, height, index, name, totalSales }) => {
+          content={({ x, y, width, height, name, totalSales }) => {
             const salesValue = Number(totalSales)
             const color = getHeatColor(salesValue, maxSales)
             const textColor = '#f5f0eb' // cor clara fixa
