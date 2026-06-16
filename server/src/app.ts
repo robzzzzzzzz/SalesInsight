@@ -11,11 +11,11 @@ const app = Fastify()
 const allowedOrigin = process.env.FRONTEND_URL || 'http://localhost:5173'
 
 app.register(cors, { origin: allowedOrigin })
-app.register(salesSummaryRoutes, { prefix: 'api' })
-app.register(revenueMonthlyRoutes, { prefix: 'api' })
-app.register(salesByCategoryRoutes, { prefix: 'api' })
-app.register(topClientsRoutes, { prefix: 'api' })
-app.register(salesByCountryRoutes, { prefix: 'api' })
+app.register(salesSummaryRoutes, { prefix: '/api' })
+app.register(revenueMonthlyRoutes, { prefix: '/api' })
+app.register(salesByCategoryRoutes, { prefix: '/api' })
+app.register(topClientsRoutes, { prefix: '/api' })
+app.register(salesByCountryRoutes, { prefix: '/api' })
 
 app.listen({ port: Number(process.env.PORT) || 3000, host: '0.0.0.0' }, (err, address) => {
   if (err) throw err
