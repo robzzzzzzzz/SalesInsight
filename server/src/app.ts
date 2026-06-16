@@ -15,7 +15,7 @@ app.register(salesByCategoryRoutes, { prefix: 'api' })
 app.register(topClientsRoutes, { prefix: 'api' })
 app.register(salesByCountryRoutes, { prefix: 'api' })
 
-app.listen({ port: 3000 }, (err, address) => {
+app.listen({ port: Number(process.env.PORT) || 3000, host: '0.0.0.0' }, (err, address) => {
   if (err) throw err
   console.log(`Servidor rodando em ${address}`)
 })
