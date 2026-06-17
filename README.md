@@ -3,13 +3,9 @@
 Dashboard corporativo de análise de vendas construído com React, TypeScript, Fastify e Drizzle ORM. Conectado a um banco de dados PostgreSQL real (Northwind) com filtros dinâmicos, gráficos interativos e design responsivo.
 
 ## 🚀 Demo
-- **Frontend:** https://salesinsight.vercel.app
+- **Frontend:** [https://salesinsight.vercel.app](https://salesinsight-one.vercel.app/)
 
 Dashboard corporativo de análise de vendas construído com React, TypeScript, Fastify e Drizzle ORM. Conectado a um banco de dados PostgreSQL real (Northwind) com filtros dinâmicos, gráficos interativos e design responsivo.
-
-## 🚀 Demo
-- **Frontend:** https://salesinsight-one.vercel.app
-- **Backend:** https://salesinsight-api.onrender.com
 
 ## 🛠️ Tecnologias
 - **Frontend:** React 19, TypeScript, Vite, Tailwind CSS, Recharts, TanStack Query
