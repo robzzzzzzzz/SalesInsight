@@ -4,7 +4,7 @@ Dashboard corporativo de análise de vendas construído com React, TypeScript, F
 
 ## 🚀 Demo
 - **Frontend:** https://salesinsight.vercel.app
-- 
+
 Dashboard corporativo de análise de vendas construído com React, TypeScript, Fastify e Drizzle ORM. Conectado a um banco de dados PostgreSQL real (Northwind) com filtros dinâmicos, gráficos interativos e design responsivo.
 
 ## 🚀 Demo
