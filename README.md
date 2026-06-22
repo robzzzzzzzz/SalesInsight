@@ -1,8 +1,8 @@
 # SalesInsight Dashboard
 
-Dashboard de analise de vendas com dados reais do banco Northwind, construido com React, TypeScript, Fastify e Drizzle ORM. A aplicacao consome um banco PostgreSQL hospedado no Neon, oferece filtros por periodo sincronizados com a URL e graficos interativos.
+Dashboard de análise de vendas com dados reais do banco Northwind, construído com React, TypeScript, Fastify e Drizzle ORM. A aplicação consome um banco PostgreSQL hospedado no Neon, oferece filtros por período sincronizados com a URL e gráficos interativos.
 
-## Demonstracao
+## Demonstração
 
 - Frontend: https://salesinsight.vercel.app
 - Backend: https://salesinsight-api.onrender.com/api
@@ -15,13 +15,13 @@ Dashboard de analise de vendas com dados reais do banco Northwind, construido co
 
 ## Funcionalidades
 
-- Indicadores principais: receita total, total de pedidos e ticket medio.
-- Filtro de periodo com os parametros persistidos na URL.
-- Grafico de linha com a receita mensal.
-- Grafico de barras duplas com receita e quantidade vendida por categoria.
-- Grafico de barras horizontais com os dez clientes que mais geraram receita.
-- Treemap com efeito de calor para as vendas por pais.
-- Modo escuro automatico conforme a preferencia do sistema.
+- Indicadores principais: receita total, total de pedidos e ticket médio.
+- Filtro de período com os parâmetros persistidos na URL.
+- Gráfico de linha com a receita mensal.
+- Gráfico de barras duplas com receita e quantidade vendida por categoria.
+- Gráfico de barras horizontais com os dez clientes que mais geraram receita.
+- Treemap com efeito de calor para as vendas por país.
+- Modo escuro automático conforme a preferência do sistema.
 - Layout responsivo para desktop, tablet e mobile.
 
 ## Como rodar localmente
