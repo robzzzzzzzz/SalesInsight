@@ -1,48 +1,33 @@
 # SalesInsight Dashboard
 
-Dashboard corporativo de análise de vendas construído com React, TypeScript, Fastify e Drizzle ORM. Conectado a um banco de dados PostgreSQL real (Northwind) com filtros dinâmicos, gráficos interativos e design responsivo.
+Dashboard de analise de vendas com dados reais do banco Northwind, construido com React, TypeScript, Fastify e Drizzle ORM. A aplicacao consome um banco PostgreSQL hospedado no Neon, oferece filtros por periodo sincronizados com a URL e graficos interativos.
 
-## 🚀 Demo
-- **Frontend:** [https://salesinsight.vercel.app](https://salesinsight-one.vercel.app/)
+## Demonstracao
 
-Dashboard corporativo de análise de vendas construído com React, TypeScript, Fastify e Drizzle ORM. Conectado a um banco de dados PostgreSQL real (Northwind) com filtros dinâmicos, gráficos interativos e design responsivo.
+- Frontend: https://salesinsight.vercel.app
+- Backend: https://salesinsight-api.onrender.com/api
 
-## 🛠️ Tecnologias
-- **Frontend:** React 19, TypeScript, Vite, Tailwind CSS, Recharts, TanStack Query
-- **Backend:** Fastify, Drizzle ORM, PostgreSQL (Neon)
-- **DevOps:** Render, Vercel, GitHub
+## Tecnologias
 
-## 📊 Funcionalidades
-- KPIs de Receita Total, Pedidos e Ticket Médio
-- Filtro por período com URL sincronizada
-- Gráficos: Receita Mensal (linha), Vendas por Categoria (barras), Top 10 Clientes (barras horizontais), Vendas por País (treemap)
-- Modo escuro automático
-- Design responsivo
+**Frontend:** React 19, TypeScript, Vite, Tailwind CSS, Recharts, TanStack Query  
+**Backend:** Fastify, Drizzle ORM, PostgreSQL (Neon)  
+**Infraestrutura:** Render, Vercel, GitHub
 
-## 🏗️ Como Rodar Localmente
+## Funcionalidades
 
-### Backend
-```bash
-cd server
-npm install
-npm run dev)
-- **Backend:** [https://salesinsight-api.onrender.com/api](https://salesinsight-api.onrender.com/api)
+- Indicadores principais: receita total, total de pedidos e ticket medio.
+- Filtro de periodo com os parametros persistidos na URL.
+- Grafico de linha com a receita mensal.
+- Grafico de barras duplas com receita e quantidade vendida por categoria.
+- Grafico de barras horizontais com os dez clientes que mais geraram receita.
+- Treemap com efeito de calor para as vendas por pais.
+- Modo escuro automatico conforme a preferencia do sistema.
+- Layout responsivo para desktop, tablet e mobile.
 
-## 🛠️ Tecnologias
-- **Frontend:** React 19, TypeScript, Vite, Tailwind CSS, Recharts, TanStack Query
-- **Backend:** Fastify, Drizzle ORM, PostgreSQL (Neon)
-- **DevOps:** Render, Vercel, GitHub
-
-## 📊 Funcionalidades
-- KPIs de Receita Total, Pedidos e Ticket Médio
-- Filtro por período com URL sincronizada
-- Gráficos: Receita Mensal (linha), Vendas por Categoria (barras), Top 10 Clientes (barras horizontais), Vendas por País (treemap)
-- Modo escuro automático
-- Design responsivo
-
-## 🏗️ Como Rodar Localmente
+## Como rodar localmente
 
 ### Backend
+
 ```bash
 cd server
 npm install
