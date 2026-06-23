@@ -4,7 +4,7 @@ Dashboard de análise de vendas com dados reais do banco Northwind, construído 
 
 ## Demonstração
 
-- Frontend: https://salesinsight.vercel.app
+- Frontend: https://salesinsight-one.vercel.app/
 - Backend: https://salesinsight-api.onrender.com/api
 
 ## Tecnologias
