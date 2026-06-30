@@ -10,6 +10,16 @@ const app = Fastify()
 
 const allowedOrigin = process.env.FRONTEND_URL || 'http://localhost:5173'
 
+app.setErrorHandler((error, request, reply) => {
+  const err = error as any
+  console.error('Erro capturado:', err.message)
+  const statusCode = err.statusCode || 500
+  reply.status(statusCode).send({
+    statusCode,
+    error: statusCode === 500 ? 'Erro interno do servidor' : err.message,
+  })
+})
+
 app.register(cors, { origin: allowedOrigin })
 app.register(salesSummaryRoutes, { prefix: '/api' })
 app.register(revenueMonthlyRoutes, { prefix: '/api' })
